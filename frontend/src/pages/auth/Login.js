@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import loaderGif from '../../assets/loader.gif'; 
+import loaderGif from '../../assets/loader.gif';
 
 export const Login = () => {
   const [email, setEmail] = useState('');
@@ -11,21 +11,26 @@ export const Login = () => {
 
   const navigate = useNavigate(); // Initialize useNavigate
 
+  // Email validation function
   const validateEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  // Password validation function (6 characters minimum)
   const validatePassword = (value) => value.length >= 6;
 
+  // Handle email input changes
   const handleEmailChange = (e) => {
     const value = e.target.value;
     setEmail(value);
     setEmailValid(validateEmail(value));
   };
 
+  // Handle password input changes
   const handlePasswordChange = (e) => {
     const value = e.target.value;
     setPassword(value);
     setPasswordValid(validatePassword(value));
   };
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -38,7 +43,7 @@ export const Login = () => {
     if (isEmailValid && isPasswordValid) {
       setLoading(true); // Show the loader
       setTimeout(() => {
-        navigate('/home');
+        navigate('/home'); // Redirect after a delay
       }, 2000); // Simulate a delay for the loader
     } else {
       if (!isEmailValid) alert('Please enter a valid email.');
@@ -59,7 +64,7 @@ export const Login = () => {
               name="email"
               value={email}
               onChange={handleEmailChange}
-              className={`w-full p-3 border rounded-md focus:outline-none focus:ring-2 ${
+              className={`w-full p-3 border rounded-md focus:outline-none focus:ring-1 ${
                 emailValid === null
                   ? 'border-gray-300 focus:ring-gray-300'
                   : emailValid
@@ -80,7 +85,7 @@ export const Login = () => {
               name="password"
               value={password}
               onChange={handlePasswordChange}
-              className={`w-full p-3 border rounded-md focus:outline-none focus:ring-2 ${
+              className={`w-full p-3 border rounded-md focus:outline-none focus:ring-1 ${
                 passwordValid === null
                   ? 'border-gray-300 focus:ring-gray-300'
                   : passwordValid
