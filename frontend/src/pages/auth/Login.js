@@ -52,7 +52,7 @@ export const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-gray-100 relative">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-gray-100 relative">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md mx-4 sm:mx-0 z-10">
         <h2 className="text-3xl font-bold text-center text-blue-600 mb-6">LOGIN</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -116,6 +116,11 @@ export const Login = () => {
           </div>
         )}
       </div>
+      
+      {/* Copyright outside the form */}
+      <p className="absolute bottom-4 text-center w-full text-gray-500 text-sm">
+        &copy; 2024 <a href="/">BNA<sup>3</sup>.  All rights reserved</a>
+      </p>
     </div>
   );
 };

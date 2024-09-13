@@ -172,6 +172,11 @@ export const Signup = () => {
           </div>
         )}
       </div>
+
+      {/* Copyright section */}
+      <p className="absolute bottom-4 text-center w-full text-gray-500 text-sm">
+        &copy; 2024 <a href="/">BNA<sup>3</sup>.  All rights reserved</a>
+      </p>
     </div>
   );
 };
